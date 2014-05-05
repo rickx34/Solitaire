@@ -6,8 +6,9 @@ public class CardList {
 	
 	public CardList(int listIndex){
 		openedIndex = listIndex;
-		cards = new LinkedList<Card>();	
-		addCardsToList(new CardDeck());
+		cards = new LinkedList<Card>();
+		CardDeck card = new CardDeck();
+		addCardsToList(card);
 		tailCard = null;
 	}
 	
@@ -45,11 +46,12 @@ public class CardList {
 		}
 	}
 	
+	//add cards to this list and remove from cardDeck depending listIndex
 	private void addCardsToList(CardDeck deck){
 		for(int i = 0;i < openedIndex;i++){
 			cards.addLast(deck.drawCard());
-		}
-		
+			deck.takeCard();
+		}	
 	}
 	
 	public String toString(){

@@ -14,7 +14,7 @@ public class Card {
 	
     public Card(int cardIndex, int suit)
     {
-		this.cardIndex = (cardIndex%13)+1;
+		this.cardIndex = cardIndex%13;
 		this.suit = suit;
     }
 	

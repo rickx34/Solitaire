@@ -1,3 +1,4 @@
+import java.util.Random;
 public class CardDeck {
 	
     private CircularlyLinkedLists<Card> cards;
@@ -8,6 +9,7 @@ public class CardDeck {
     public CardDeck(){
 		cards = new CircularlyLinkedLists<Card>();
 		addCards(cards);
+		shuffleCards();
 		currentCard = cards.getFirst();
 		listIndex = 0;
     }
@@ -41,6 +43,16 @@ public class CardDeck {
 	public Card takeCard(){
 		Card temp = cards.remove(currentCard);
 		return temp;
+	}
+	
+	public void shuffleCards(){
+		Random random = new Random();
+		for(int i = NUM_OF_CARDS;i > 0; i-- ){
+			int randomInt = random.nextInt(52);
+			Card temp = cards.get(randomInt);
+			cards.set(randomInt,cards.get(i-1));
+			cards.set(i-1,temp);	
+		}
 	}
 	
 	public String toString(){
