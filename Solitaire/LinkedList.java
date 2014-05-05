@@ -228,7 +228,7 @@ public class LinkedList<E> extends AbstractList<E>{
 		
 		Element<E> finger = head;
 		while (finger != null && finger.next != null) {
-			string += finger.value + ", ";
+			string += finger.value + "-";
 			finger = finger.next;
 		}
 		

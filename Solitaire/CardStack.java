@@ -6,12 +6,17 @@ public class CardStack{
 	}
 	
 	public void add(Card c){
+		
 		if(stack.isEmpty()){
 			stack.push(c);
 		}
-		else if(c.getValue() > stack.peek().getValue() && c.getSuit() == stack.peek().getSuit()){
+		else if(c.getValue() == (stack.peek().getValue()+1) && c.getSuit() == stack.peek().getSuit()){
 			stack.push(c);
 		}
+	}
+	
+	public String toString(){
+		return stack.toString();
 	}
 	
 	public static void main(String[] args){
@@ -19,6 +24,6 @@ public class CardStack{
 		CardStack stack = new CardStack();
 		stack.add(new Card(Card.ACE, Card.SPADE));
 		stack.add(new Card(2, Card.SPADE));
-		System.out.println(stack.stack);
+		System.out.println(stack);
 	}
 }
