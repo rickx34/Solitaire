@@ -18,11 +18,11 @@ public class CardDeck {
 		int suit = Card.CLUB;//for changing suits, start from clubs
 		int suitChanger = 0;//this variable is responsible for changing the suit every 13th run
 		
-		for(int i = 0 ;i < NUM_OF_CARDS; i ++){
-			cards.addLast(new Card(i,suit));//adding cards from 0 to i, and starting carindex from 0
+		for(int i = Card.ACE ;i <= NUM_OF_CARDS; i ++){
+			cards.addLast(new Card(i,suit));//adding cards from Ace to i, and starting carindex from 0
 			
 			//change suit
-			if(i == suitChanger+12){
+			if(i == suitChanger+13){
 				suitChanger = suitChanger+13;
 				suit++;
 			}
@@ -53,6 +53,10 @@ public class CardDeck {
 			cards.set(randomInt,cards.get(i-1));
 			cards.set(i-1,temp);	
 		}
+	}
+	
+	public Card getCurrentCard(){
+		return currentCard;
 	}
 	
 	public String toString(){

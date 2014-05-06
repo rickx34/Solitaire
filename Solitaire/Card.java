@@ -6,7 +6,7 @@ public class Card {
     public static final int ACE = 1;
     public static final int JACK = 11;
     public static final int QUEEN = 12;
-    public static final int KING = 13;
+    public static final int KING = 0;
     public static final int CLUB = 0;
     public static final int SPADE = 1;
     public static final int DIAMOND = 2;
@@ -20,7 +20,7 @@ public class Card {
 	
     public static void main (String args[]) {
 		
-		Card card = new Card(52,SPADE);
+		Card card = new Card(ACE,SPADE);
 		System.out.println(card);
     }
 	
@@ -37,16 +37,16 @@ public class Card {
 	public String getValueString(){
 		if(cardIndex == ACE)
 	    {
-			return "Ace";
+			return "A";
 		}
 		else if(cardIndex == JACK){
-			return "Jack";
+			return "J";
 		}
 		else if(cardIndex == QUEEN){
-			return "Queen";
+			return "Q";
 		}
 		else if(cardIndex == KING){
-			return "King";
+			return "K";
 		}
 		else{
 			return Integer.toString(cardIndex);
@@ -61,20 +61,17 @@ public class Card {
 	}
 	
 	public String toString(){
-		String str = "";
+		String str = getValueString();
 		if(getSuit() == CLUB)
-			str ="Club";
+			str +="♣";
 		else if(getSuit() == SPADE)
-			str ="Spade";
+			str +="♠";
 		else if(getSuit() == DIAMOND)
-			str= "Diamond";
+			str += "♦";
 		else if(getSuit() == HEART)
-			str= "Heart";
+			str += "♥";
 		
-		if(getValueString().equals("10"))
-			return str + getValueString().substring(0,2);
-		else
-			return str + getValueString().charAt(0);
+			return str;
 	}
 	
 	

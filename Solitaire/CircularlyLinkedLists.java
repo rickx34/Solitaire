@@ -219,7 +219,7 @@ public class CircularlyLinkedLists<E> extends AbstractList<E>{
 	@Override
 	public String toString(){
 		//converting the values in a linked list to String and storing them into string variable.
-		String string = "[ ";
+		String string = "";
 
 		if(!isEmpty()){
 			Element<E> finger = tail.next;
@@ -238,9 +238,7 @@ public class CircularlyLinkedLists<E> extends AbstractList<E>{
 				}
 			}
 			if(tail.next != null)
-				string += finger.value + " ]";
-			else 
-				string += "]";
+				string += finger.value + "";
 			
 		}else
 			return "List is Empty.";

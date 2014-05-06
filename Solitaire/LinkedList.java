@@ -224,16 +224,15 @@ public class LinkedList<E> extends AbstractList<E>{
 	
 	@Override
 	public String toString() {
-		String string = "[ ";
+		String string = "";
 		
 		Element<E> finger = head;
 		while (finger != null && finger.next != null) {
-			string += finger.value + "-";
+			string += finger.value + " ";
 			finger = finger.next;
 		}
 		
-		if(head != null) string += finger.value + " ]";
-		else string += "]";
+		if(head != null) string += finger.value + "";
 		
 		
 		return string;
