@@ -34,8 +34,8 @@ public class Card {
 	}
 	
 	public String getValueString(){
-		if(cardIndex == ACE)
-	    {
+		
+		if(cardIndex == ACE){
 			return "A";
 		}
 		else if(cardIndex == JACK){
@@ -72,7 +72,5 @@ public class Card {
 		
 			return str;
 	}
-	
-	
 }
 
