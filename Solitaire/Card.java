@@ -18,8 +18,7 @@ public class Card {
 		this.suit = suit;
     }
 	
-    public static void main (String args[]) {
-		
+    public static void main (String args[]) {	
 		Card card = new Card(ACE,SPADE);
 		System.out.println(card);
     }
