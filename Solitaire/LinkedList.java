@@ -63,7 +63,7 @@ public class LinkedList<E> extends AbstractList<E>{
 	}
 	
 	public E getLast() {
-		if (size == 0)
+		if (size() == 0)
 			throw new NoSuchElementException();
 		
 		Element<E> finger = head;

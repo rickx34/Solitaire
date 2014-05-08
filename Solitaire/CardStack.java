@@ -16,7 +16,10 @@ public class CardStack{
 	}
 	
 	public String toString(){
-		return stack.toString();
+		if(stack.isEmpty())
+			return "Empty";
+		else
+			return stack.peek().toString();
 	}
 	
 	public static void main(String[] args){

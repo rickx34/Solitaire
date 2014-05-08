@@ -11,7 +11,7 @@ public class CardDeck {
 		addCards(cards);
 		shuffleCards();
 		currentCard = cards.getFirst();
-		listIndex = 0;
+		listIndex = 1;
     }
     
     private void addCards(CircularlyLinkedLists<Card> cards){		
@@ -32,6 +32,7 @@ public class CardDeck {
 	public Card drawCard(){
 	//get the next index in the list, which basically is drawing the next card
 		if(!currentCard.equals(cards.getLast())){
+			
 			currentCard = cards.get(listIndex);
 			listIndex++;
 			return currentCard;
@@ -42,6 +43,7 @@ public class CardDeck {
 	
 	public Card takeCard(){
 		Card temp = cards.remove(currentCard);
+		drawCard();
 		return temp;
 	}
 	
@@ -60,12 +62,16 @@ public class CardDeck {
 	}
 	
 	public String toString(){
-		return cards.toString();
+		if(cards.isEmpty()){
+			return "Empty";
+		}else
+			return "Not Empty";
 	}
 
     public static void main(String[] args){
 		CardDeck cardss = new CardDeck();
 		System.out.println(cardss);
+                System.out.println(cardss.drawCard().toString());
     }
 }
 

@@ -31,7 +31,7 @@ public class Card {
     public int getValue()
     {
 		return cardIndex;
-	}
+    }
 	
 	public String getValueString(){
 		

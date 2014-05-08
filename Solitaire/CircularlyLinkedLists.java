@@ -40,11 +40,7 @@ public class CircularlyLinkedLists<E> extends AbstractList<E>{
 	
 	@Override
 	public E get(int i){
-	// pre: 0<=i<size()
-	// post: returns the element at location i
-		if (i < 0 || i >= size)
-			throw new IndexOutOfBoundsException();
-		
+			
 		if (i == 0)
 			return getFirst();
 		else if (i == size -1)
@@ -64,9 +60,6 @@ public class CircularlyLinkedLists<E> extends AbstractList<E>{
 	}
 	
 	public E getLast() {
-		if (size == 0)
-			throw new NoSuchElementException();
-		
 		return tail.value;
 	}
 	
