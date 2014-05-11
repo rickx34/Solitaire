@@ -5,7 +5,7 @@ public class CardStack{
 		stack = new StackClass<Card>();
 	}
 	
-	public void add(Card c){
+	public boolean add(Card c){
 		
 		if(stack.isEmpty()){
 			stack.push(c);
@@ -13,6 +13,7 @@ public class CardStack{
 		else if(c.getValue() == (stack.peek().getValue()+1) && c.getSuit() == stack.peek().getSuit()){
 			stack.push(c);
 		}
+		return true;
 	}
 	
 	public String toString(){

@@ -10,15 +10,15 @@ public class CardDeck {
 		cards = new CircularlyLinkedLists<Card>();
 		addCards(cards);
 		shuffleCards();
-		currentCard = cards.getFirst();
-		listIndex = 1;
+		currentCard = null;//cards.getFirst();
+		listIndex = 0;
     }
     
     private void addCards(CircularlyLinkedLists<Card> cards){		
 		int suit = Card.CLUB;//for changing suits, start from clubs
 		int suitChanger = 0;//this variable is responsible for changing the suit every 13th run
 		
-		for(int i = Card.ACE ;i <= NUM_OF_CARDS; i ++){
+		for(int i = Card.ACE ;i <= NUM_OF_CARDS; i++){
 			cards.addLast(new Card(i,suit));//adding cards from Ace to i, and starting carindex from 0
 			
 			//change suit
@@ -30,26 +30,32 @@ public class CardDeck {
 	}
 	
 	public Card drawCard(){
-	//get the next index in the list, which basically is drawing the next card
-		if(!currentCard.equals(cards.getLast())){
-			
-			currentCard = cards.get(listIndex);
-			listIndex++;
-			return currentCard;
-			
-		}else
-			return null;
+		//get the next index in the list, which basically is drawing the next card
+		currentCard = cards.get(cards.indexOf(currentCard)+1);
+		if(currentCard.equals(cards.getLast())){
+			return currentCard = cards.getFirst();	
+		}
+		return currentCard;
+	}
+	
+	public boolean isEmpty(){
+		return cards.isEmpty();
 	}
 	
 	public Card takeCard(){
-		Card temp = cards.remove(currentCard);
-		drawCard();
-		return temp;
+		Card temp=currentCard;
+		if(!cards.contains(currentCard)){
+			return cards.removeFirst();
+		}
+		else{
+			return cards.remove(currentCard);
+		}	
+		//return temp;
 	}
 	
 	public void shuffleCards(){
 		Random random = new Random();
-		for(int i = NUM_OF_CARDS;i > 0; i-- ){
+		for(int i = NUM_OF_CARDS;i > 0; i--){
 			int randomInt = random.nextInt(52);
 			Card temp = cards.get(randomInt);
 			cards.set(randomInt,cards.get(i-1));
@@ -71,7 +77,5 @@ public class CardDeck {
     public static void main(String[] args){
 		CardDeck cardss = new CardDeck();
 		System.out.println(cardss);
-                System.out.println(cardss.drawCard().toString());
     }
 }
-
