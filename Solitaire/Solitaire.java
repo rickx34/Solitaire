@@ -50,14 +50,18 @@ public class Solitaire {
 
 			if(listNumber < 1 || listNumber>7)
 				return false;
-
-			if(lists[listNumber-1].add(deck.getCurrentCard())){
-				deck.takeCard();
-				deck.drawCard();
-				return true;	
-			}
-			else
+			
+			try{
+				
+				if(lists[listNumber-1].add(deck.getCurrentCard())){
+					deck.takeCard();
+					return true;	
+				}
+				else
+					return false;
+			}catch(Exception e){
 				return false;
+			}
 
 		}else if (command.toLowerCase().contains("link")) {
 			StringTokenizer tokenizer = new StringTokenizer(command);

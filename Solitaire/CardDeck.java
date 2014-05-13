@@ -3,18 +3,20 @@ public class CardDeck {
 	
     private CircularlyLinkedLists<Card> cards;
     private Card currentCard;
+    private Card removeCard;
     final static int NUM_OF_CARDS = 52;
     private int listIndex;//this variable is used for getting the next index in the list, used in drawCard()
     
     public CardDeck(){
 		cards = new CircularlyLinkedLists<Card>();
+		removeCard = null;
 		addCards(cards);
 		shuffleCards();
-		currentCard = null;//cards.getFirst();
+		currentCard = drawCard();//cards.getFirst();
 		listIndex = 0;
     }
     
-    private void addCards(CircularlyLinkedLists<Card> cards){		
+    private void addCards(CircularlyLinkedLists<Card> cards){
 		int suit = Card.CLUB;//for changing suits, start from clubs
 		int suitChanger = 0;//this variable is responsible for changing the suit every 13th run
 		
@@ -43,16 +45,20 @@ public class CardDeck {
 	}
 	
 	public Card takeCard(){
-		Card temp=currentCard;
+		/*Card temp=null;
 		if(!cards.contains(currentCard)){
-			return cards.removeFirst();
+			temp = cards.removeFirst();
 		}
 		else{
-			return cards.remove(currentCard);
-		}	
-		//return temp;
+			temp = cards.remove(currentCard);
+		}
+		return temp;*/
+		removeCard = currentCard;
+		currentCard = cards.get(cards.indexOf(removeCard)-1);
+		cards.remove(removeCard);
+		return currentCard;
 	}
-	
+		
 	public void shuffleCards(){
 		Random random = new Random();
 		for(int i = NUM_OF_CARDS;i > 0; i--){
