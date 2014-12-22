@@ -1,4 +1,4 @@
-Uses linked list and modified version of linked list called CircularlyLinkedLists.
+Text based game which uses linked list and modified version of linked list called CircularlyLinkedLists.
 
 To run this game simply run the Solitaire.java and use these commands to interact:
 
