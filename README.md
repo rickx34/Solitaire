@@ -1,5 +1,6 @@
-This is a text based Solitare Game, University Assignment 2014.
-Commands:
+Uses linked list and modified version of linked list called CircularlyLinkedLists.
+
+To run this game simply run the Solitaire.java and use these commands to interact:
 
 **DrawCard**: Open the next card on the card deck.
 
