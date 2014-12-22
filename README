@@ -1,5 +1,5 @@
 This is a text based Solitare Game, University Assignment 2014.
-Commands must be used inorder to play which are
+Commands:
 
 - DrawCard: Open the next card on the card deck.
 
