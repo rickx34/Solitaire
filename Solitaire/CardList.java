@@ -26,9 +26,7 @@ public class CardList {
 		System.out.println(list2);
 		System.out.println(list3);
 		System.out.println(list4);
-		
-		
-		
+		//Dingo bhoo bhaaa
     }
 
     //cut the decklist into two seprate list
